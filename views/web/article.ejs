@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个人博客</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/bootstrap.3.3.4.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body class="home-template">
+
+<!-- start header -->
+<% include ./components/header.ejs %>
+<!-- end header --> 
+
+<!-- start site's main content area -->
+<section class="content-wrap">
+  <div class="container">
+    <div class="row">
+      <main class="col-md-8 main-content">
+        <article id="97" class="post">
+          <header class="post-head">
+            <h1 class="post-title"><%= articles.title %></h1>
+            <section class="post-meta"> <span class="author">作者：<a><%= articles.author %></a></span> •
+              <time class="post-date" datetime="<%= articles.publish %>"><%= articles.publish %></time>
+            </section>
+          </header>
+          <% if(articles.pic !== ''){ %>
+          <section class="featured-media"> <img src="/uploads/<%= articles.pic %>" /> </section>
+          <% } %>
+          <section class="post-content">
+            <%- articles.content %>
+          </section>
+          <footer class="post-footer clearfix">
+            <div class="pull-left tag-list"> <i class="fa fa-folder-open-o"></i> </div>
+            <div class="pull-right share">
+              <div class="bdsharebuttonbox share-icons bdshare-button-style0-24" data-bd-bind="1496889546668"> <a href="#" class="bds_more" data-cmd="more"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a> <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a> <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> </div>
+            </div>
+          </footer>
+        </article>
+        <!-- <div class="about-author clearfix"> <a href="/"><img src="http://static.ghostchina.com/image/5/ea/da657733ee8c9add9cf3fd70183a6.png" alt="王赛" class="avatar pull-left"></a>
+          <div class="details">
+            <div class="author"> 关于作者 <a href="/author/wangsai/">王赛</a> </div>
+            <div class="meta-info"> <span class="loaction"><i class="fa fa-home"></i>北京</span> <span class="website"><i class="fa fa-globe"></i><a href="http://www.bootcss.com" targer="_blank">个人网站/博客</a></span> </div>
+          </div>
+        </div> -->
+      </main>
+      <% include ./components/right-aside.ejs %>
+    </div>
+  </div>
+</section>
+<% include ./components/footer.ejs %>
+<script src="/js/jquery.1.12.4.min.js"></script> 
+<script src="/js/bootstrap.3.3.7.min.js"></script>
+</body>
+</html>

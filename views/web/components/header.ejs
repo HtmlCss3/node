@@ -1,0 +1,34 @@
+<header class="main-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <!-- start logo -->
+                <a class="branding" href="/"><img src="/images/cImg.png" /></a>
+                <!-- end logo -->
+                <h2 class="text-hide">Ghost 是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 Ghost 来帮你处理吧。</h2>
+
+                <img src="/images/topbanner.jpg" class="hide">
+            </div>
+        </div>
+    </div>
+</header>
+<!-- start navigation -->
+<nav class="main-navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="navbar-header"> <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu"> <span class="sr-only">Toggle navigation</span> <i class="glyphicon glyphicon-list"></i> </span> </div>
+        <div class="collapse navbar-collapse" id="main-menu">
+          <ul class="menu">
+            <!-- class="nav-current" -->
+            <% for(var i=0; i<navs.length; i++){ %>
+            <li role="presentation"><a href="<%= navs[i].href %>"><%= navs[i].nav %></a></li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- end navigation --> 

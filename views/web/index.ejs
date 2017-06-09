@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个人博客</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/bootstrap.3.3.4.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body class="home-template">
+
+<!-- start header -->
+<% include ./components/header.ejs %>
+<!-- end header --> 
+
+<!-- start site's main content area -->
+<section class="content-wrap">
+  <div class="container">
+    <div class="row">
+      <main class="col-md-8 main-content">
+        <% for(var i=0; i<articles.length; i++){ %>
+        <article class="post">
+          <div class="post-head">
+            <h1 class="post-title"><a href="/article?pid=<%= articles[i].id %>"><%= articles[i].title %></a></h1>
+            <div class="post-meta"> <span class="author">作者：<a><%= articles[i].author %></a></span> &bull;
+              <time class="post-date" datetime="<%= articles[i].publish %>"><%= articles[i].publish %></time>
+            </div>
+          </div>
+          <% if(articles[i].pic !== ''){ %>
+          <div class="featured-media"> <a href="/article?pid=<%= articles[i].id %>"><img src="/uploads/<%= articles[i].pic %>" /></a> </div>
+          <% } %>
+          <div class="post-content">
+            <p><%= articles[i].content.substr(0,102) %>...</p>
+          </div>
+          <div class="post-permalink"> <a href="/article?pid=<%= articles[i].id %>" class="btn btn-default">阅读全文</a> </div>
+          <footer class="post-footer clearfix">
+            <div class="pull-left tag-list"> <i class="fa fa-folder-open-o"></i> </div>
+            <div class="pull-right share"> </div>
+          </footer>
+        </article>
+        <% } %>
+        <nav class="pagination" role="navigation"> <span class="page-number">第 1 页 &frasl; 共 8 页</span> <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a> </nav>
+      </main>
+      <% include ./components/right-aside.ejs %>
+    </div>
+  </div>
+</section>
+<% include ./components/footer.ejs %>
+<script src="/js/jquery.1.12.4.min.js"></script> 
+<script src="/js/bootstrap.3.3.7.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $(".menu li").eq(0).addClass('nav-current')
+})
+</script>
+</body>
+</html>
