@@ -46,10 +46,12 @@ module.exports=function(){
 			articles[i].publish = sTime.formatDate(articles[i].publish);
 		}
 		res.render('admin/index.ejs', {navs: res.navs, articles: articles})
+		
 	})
 
 	route.use('/login', require('./login')());
 	route.use('/article', require('./article')());
-
+	route.use('/logout', require('./logout')());
+	route.use('/art', require('./art')());
 	return route;
 }

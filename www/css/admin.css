@@ -141,3 +141,6 @@ body {
   max-height: 120px;
   overflow: auto;
 }
+.handler a{
+  margin: 0 5px;
+}

@@ -54,7 +54,7 @@ module.exports=function(){
 		for(var i=0; i<newArticle.length; i++){
 			newArticle[i].publish = sTime.formatDate(newArticle[i].publish);
 		}
-		res.render('web/index.ejs', { navs:res.navs, articles: article, newArticle: newArticle });
+		res.render('web/index.ejs', { navs:res.navs, articles: article, newArticle: newArticle, isLogin: req.session['admin_id'] });
 		
 	});
 

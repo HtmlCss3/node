@@ -3,7 +3,11 @@
   <!-- start tag cloud widget -->
   <div class="widget">
     <h4 class="title">后台登录</h4>
+    <% if(!isLogin){ %>
     <div class="content download"> <a href="/admin" class="btn btn-default btn-block">登录</a> </div>
+    <% }else{ %>
+    <div class="content download"> <a href="/admin/logout" class="btn btn-default btn-block">退出</a> </div>
+    <% } %>
   </div>
   <!-- end tag cloud widget --> 
   
