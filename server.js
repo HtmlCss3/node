@@ -18,7 +18,7 @@ server.use(cookieParser('@#$%f&*g@!%l#%@'));
 	server.use(cookieSession({
 		name: 'blog_sign',
 		keys: keyArr,
-		maxAge: 20*60*1000
+		maxAge: 20*60*1000 
 	}))
 })()
 
